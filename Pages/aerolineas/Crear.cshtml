@@ -1,0 +1,30 @@
+@page
+@model CrearModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h1> Crear una Aerolinea </h1>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+  <div class="form-group">
+    <label for="Nombre">Nombre</label>
+    <input type="text" asp-for="Nombre" class="form-control"
+         id="Nombre" aria-describedby="">
+    <span asp-validation-for="Nombre"></span>
+  </div>
+  <div class="form-group">
+    <label for="PaisOrigen">Pais Origen</label>
+    <input type="text"asp-for="PaisOrigen" class="form-control"
+          aria-describedby="">
+         <span asp-validation-for="PaisOrigen"></span>
+    
+  </div>
+
+  <div class="form-group">
+    <label for="Calificacion">Calificacion</label>
+    <input type="text" class="form-control"
+        name="Calificacion" id="Calificacion" aria-describedby="">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Crear</button>
+</form>

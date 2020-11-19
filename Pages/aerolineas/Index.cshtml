@@ -1,0 +1,40 @@
+@page
+@model IndexModel
+@{
+    var i = 1;
+    var EsAdmin = User.IsInRole("Admin");
+}
+<h2>Aerolineas
+</h2>
+<div class="row">
+    <a asp-page="./Crear" role="button" class="btn btn-success">Crear</a>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Pais Origen</th>
+      <th scope="col">Calificacion</th>
+      
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var aero in Model.Aerolineas)
+    {
+     
+    <tr>
+      <td>@aero.Nombre</td>
+      <td>@aero.PaisOrigen</td>
+      <td>@aero.Calificacion</td>
+      <td><a asp-page="./Detalles" asp-route-Id="@aero.Id" class="btn btn-info">Detalles </a>
+      <a asp-page="./Editar" asp-route-Id="@aero.Id" class="btn btn-info">Editar </a>
+      <a asp-page="./Borrar" asp-route-Id="@aero.Id" class="btn btn-warning">Borrar </a>
+      
+      </td>
+    </tr>
+        i++;
+    }
+   
+  </tbody>
+</table>
